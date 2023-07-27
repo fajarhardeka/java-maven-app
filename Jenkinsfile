@@ -23,10 +23,15 @@ pipeline {
                     junit 'target/surefire-reports/*.xml'
                 }
             }
-        }
-        stage('Deliver') { 
+        stage('Manual Approval') {
             steps {
-                sh './jenkins/scripts/deliver.sh' 
+                // Menunggu persetujuan manual
+                input message: 'Lanjutkan ke tahap Deploy?'
+            } 
+        }
+        stage('Deploy') { 
+            steps {
+                sh './jenkins/scripts/deliver.sh'
             }
         }
     }
