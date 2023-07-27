@@ -25,13 +25,13 @@ pipeline {
             }
         stage('Manual Approval') {
             steps {
-                // Menunggu persetujuan manual
-                input message: 'Lanjutkan ke tahap Deploy?'
-            } 
+                input message: 'Lanjutkan ke tahap Deliver?'
+                }
+            }    
         }
-        stage('Deploy') { 
+        stage('Deliver') { 
             steps {
-                sh './jenkins/scripts/deliver.sh'
+                sh './jenkins/scripts/deliver.sh' 
             }
         }
     }
