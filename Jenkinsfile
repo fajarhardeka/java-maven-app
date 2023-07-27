@@ -23,11 +23,6 @@ pipeline {
                     junit 'target/surefire-reports/*.xml'
                 }
             }
-        stage('Manual Approval') {
-            steps {
-                input message: 'Lanjutkan ke tahap Deliver?'
-                }
-            }    
         }
         stage('Deliver') { 
             steps {
